@@ -1,0 +1,38 @@
+{
+	"name": "hookrelay",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Reliable webhook ingestion and delivery gateway on Cloudflare Workers",
+	"type": "module",
+	"license": "MIT",
+	"author": "Amaury Molina",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/amaury-molina/hookrelay"
+	},
+	"engines": {
+		"node": ">=22"
+	},
+	"scripts": {
+		"dev": "wrangler dev",
+		"deploy": "wrangler deploy",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"typecheck": "tsc -p .",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"types": "wrangler types",
+		"check": "npm run lint && npm run typecheck && npm test"
+	},
+	"dependencies": {
+		"hono": "^4.13.13"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.5.15",
+		"@cloudflare/vitest-plugin": "^1.4.4",
+		"typescript": "~5.9.3",
+		"vite": "^8.3.4",
+		"vitest": "^5.0.5",
+		"wrangler": "^4.151.1"
+	}
+}

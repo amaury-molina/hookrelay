@@ -1,0 +1,27 @@
+{
+	"name": "hookrelay",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:22",
+	"hostRequirements": { "cpus": 2 },
+	"postCreateCommand": "npm ci",
+	"forwardPorts": [8787],
+	"portsAttributes": {
+		"8787": { "label": "wrangler dev", "onAutoForward": "notify" }
+	},
+	"secrets": {
+		"CLOUDFLARE_API_TOKEN": {
+			"description": "Cloudflare API token scoped to Workers, D1 and Queues. Only needed to deploy from the codespace; CI deploys on merge to main."
+		},
+		"CLOUDFLARE_ACCOUNT_ID": {
+			"description": "Your Cloudflare account ID (not secret, but kept out of the repo)."
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": ["biomejs.biome", "vitest.explorer"],
+			"settings": {
+				"editor.defaultFormatter": "biomejs.biome",
+				"editor.formatOnSave": true
+			}
+		}
+	}
+}
